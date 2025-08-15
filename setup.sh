@@ -47,7 +47,7 @@ fi
 declare -A REPOS=(
     ["device/nothing/Pong"]="https://github.com/alexandrusemina/device_nothing_Pong.git"
     ["vendor/nothing/Pong"]="https://github.com/Pong-Development/vendor_nothing_Pong.git"
-    ["kernel/nothing/sm8475"]="https://github.com/Pong-Development/kernel_nothing_sm8475.git"
+    ["kernel/nothing/sm8475"]="https://github.com/alexandrusemina/kernel_nothing_sm8475.git"
     ["hardware/qcom-caf/sm8450/display"]="https://github.com/Pong-Development/hardware_qcom-caf_sm8450_display.git"
     ["hardware/qcom-caf/sm8450/audio/primary-hal"]="https://github.com/Pong-Development/hardware_qcom_audio-ar.git"
     ["hardware/qcom-caf/sm8450/audio/pal"]="https://github.com/Pong-Development/vendor_qcom_opensource_arpal-lx.git"
