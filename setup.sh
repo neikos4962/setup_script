@@ -57,7 +57,6 @@ declare -A REPOS=(
     ["packages/apps/ParanoidGlyphPhone2"]="https://github.com/Pong-Development/packages_apps_ParanoidGlyph.git"
     ["hardware/dolby"]="https://github.com/Pong-Development/hardware_dolby.git"
     ["packages/apps/GlyphAdapter"]="https://github.com/Pong-Development/packages_apps_GlyphAdapter.git"
-    ["packages/apps/ToggleMe"]="https://github.com/genoxci-dev/packages_apps_ToggleMe.git'"
 )
 
 # Function to clone a repository with error handling
