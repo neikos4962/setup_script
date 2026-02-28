@@ -49,6 +49,7 @@ declare -A REPOS=(
     ["vendor/nothing/Pong"]="https://github.com/Pong-Development/vendor_nothing_Pong.git"
     ["kernel/nothing/sm8475"]="https://github.com/Nothing-phone-2-Development/android_kernel_nothing_sm8475.git"
     ["kernel/nothing/sm8475-modules"]="https://github.com/Nothing-phone-2-Development/android_kernel_nothing_sm8475-modules.git"
+    ["kernel/nothing/sm8475-devicetrees"]="https://github.com/Nothing-phone-2-Development/android_kernel_nothing_sm8475-devicetrees.git"
     ["hardware/qcom-caf/sm8450/display"]="https://github.com/Pong-Development/hardware_qcom-caf_sm8450_display.git"
     ["hardware/qcom-caf/sm8450/audio/primary-hal"]="https://github.com/Pong-Development/hardware_qcom_audio-ar.git"
     ["hardware/qcom-caf/sm8450/audio/pal"]="https://github.com/Pong-Development/vendor_qcom_opensource_arpal-lx.git"
@@ -106,16 +107,6 @@ fi
 for target_dir in "${!REPOS[@]}"; do
     clone_repo "$target_dir" "${REPOS[$target_dir]}"
 done
-
-# KernelSU patch
-echo "Applying KernelSU patch..."
-cd kernel/nothing/sm8475 || exit 1
-git submodule init && git submodule update
-cd - >/dev/null
-echo ""
-echo ""
-echo " ✅ KernelSU patch applied."
-echo ""
 
 # setup done
 echo ""
