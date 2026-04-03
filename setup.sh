@@ -114,6 +114,16 @@ echo ""
 echo " ✅ KernelSU patch applied."
 echo ""
 
+# lfs files
+echo "Update lfs files..."
+cd vendor/nothing/Pong
+git lfs fetch --all && git lfs checkout
+cd - >/dev/null
+echo ""
+echo ""
+echo " ✅ LFS update done."
+echo ""
+
 # setup done
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
