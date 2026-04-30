@@ -51,7 +51,7 @@ declare -A REPOS=(
     ["kernel/nothing/sm8475-modules"]="https://github.com/Nothing-phone-2-Development/android_kernel_nothing_sm8475-modules.git"
     ["kernel/nothing/sm8475-devicetrees"]="https://github.com/Nothing-phone-2-Development/android_kernel_nothing_sm8475-devicetrees.git"
     ["hardware/qcom-caf/sm8450/display"]="https://github.com/Pong-Development/hardware_qcom-caf_sm8450_display.git"
-    ["packages/apps/ParanoidGlyphPhone2"]="https://github.com/Pong-Development/packages_apps_ParanoidGlyph.git"
+    ["packages/apps/ParanoidGlyph"]="https://github.com/NullDebris/packages_apps_ParanoidGlyph.git"
     ["packages/apps/GlyphAdapter"]="https://github.com/Pong-Development/packages_apps_GlyphAdapter.git"
     ["hardware/dolby"]="https://github.com/Pong-Development/hardware_dolby.git"
 )
