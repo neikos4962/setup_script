@@ -17,7 +17,6 @@ echo ""
 echo "✨ Happy custom ROM building! ✨"
 echo ""
 echo "🔧 Build script by: GHOST | ゴースト"
-echo "   Adapted for DerpFest by SeminaAlexandru" 
 echo ""
 
 # Explain Depth Cloning
@@ -45,34 +44,39 @@ fi
 
 # Define repositories
 declare -A REPOS=(
-    ["device/nothing/Pong"]="https://github.com/neikos4962/device_nothing_Pong.git"
-    ["vendor/nothing/Pong"]="https://github.com/Pong-Development/vendor_nothing_Pong.git"
-    ["kernel/nothing/sm8475"]="https://github.com/Pong-Development/kernel_nothing_sm8475.git"
-    ["kernel/nothing/sm8475-modules"]="https://github.com/Nothing-phone-2-Development/android_kernel_nothing_sm8475-modules.git"
-    ["kernel/nothing/sm8475-devicetrees"]="https://github.com/Nothing-phone-2-Development/android_kernel_nothing_sm8475-devicetrees.git"
-    ["hardware/qcom-caf/sm8450/display"]="https://github.com/Pong-Development/hardware_qcom-caf_sm8450_display.git"
-    ["packages/apps/ParanoidGlyph"]="https://github.com/NullDebris/packages_apps_ParanoidGlyph.git"
-    ["packages/apps/GlyphAdapter"]="https://github.com/Pong-Development/packages_apps_GlyphAdapter.git"
-    ["hardware/dolby"]="https://github.com/Pong-Development/hardware_dolby.git"
+    ["device/nothing/Pong"]="https://github.com/neikos4962/device_nothing_Pong.git|17"
+    ["vendor/nothing/Pong"]="https://github.com/Pong-Development/vendor_nothing_Pong.git|17"
+    ["kernel/nothing/sm8475"]="https://github.com/Pong-Development/kernel_nothing_sm8475.git|17"
+    ["kernel/nothing/sm8475-modules"]="https://github.com/Pong-Development/kernel_nothing_sm8475-modules.git|17"
+    ["kernel/nothing/sm8475-devicetrees"]="https://github.com/Nothing-phone-2-Development/android_kernel_nothing_sm8475-devicetrees.git|lineage-23.0"
+    ["hardware/qcom-caf/sm8450/display"]="https://github.com/Pong-Development/hardware_qcom-caf_sm8450_display.git|16.2"
+    ["packages/apps/ParanoidGlyphPhone2"]="https://github.com/Pong-Development/packages_apps_ParanoidGlyph.git|17"
+    ["packages/apps/GlyphAdapter"]="https://github.com/Pong-Development/packages_apps_GlyphAdapter.git|16"
+    ["hardware/dolby"]="https://github.com/Pong-Development/hardware_dolby.git|16"
 )
 
 # Function to clone a repository with error handling
 clone_repo() {
     local target_dir="$1"
-    local repo_url="$2"
-    
+    local repo_data="$2"
+
+    IFS='|' read -r repo_url branch <<< "$repo_data"
+
     echo "Cloning $target_dir..."
-    
-    # Remove existing directory if it exists
+    echo "Repository: $repo_url"
+    echo "Branch: $branch"
+
     rm -rf "$target_dir"
-    
-    if git clone $CLONE_DEPTH "$repo_url" "$target_dir"; then
+
+    if git clone $CLONE_DEPTH -b "$branch" "$repo_url" "$target_dir"; then
         echo ""
         echo "✅ Successfully cloned ✨ $target_dir"
+        echo "🌿 Branch: $branch"
         echo ""
     else
         echo ""
-        echo "❌ Failed to clone $target_dir. Check your internet connection."
+        echo "❌ Failed to clone $target_dir"
+        echo "🌿 Branch: $branch"
         echo ""
         exit 1
     fi
@@ -107,21 +111,11 @@ done
 # KernelSU patch
 echo "Applying KernelSU patch..."
 cd kernel/nothing/sm8475 || exit 1
-curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v2.0.0
+curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v3.3.0
 cd - >/dev/null
 echo ""
 echo ""
 echo " ✅ KernelSU patch applied."
-echo ""
-
-# lfs files
-echo "Update lfs files..."
-cd vendor/nothing/Pong
-git lfs fetch --all && git lfs checkout
-cd - >/dev/null
-echo ""
-echo ""
-echo " ✅ LFS update done."
 echo ""
 
 # setup done
