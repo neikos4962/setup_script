@@ -53,7 +53,7 @@ declare -A REPOS=(
     ["packages/apps/ParanoidGlyphPhone2"]="https://github.com/Pong-Development/packages_apps_ParanoidGlyph.git|17"
     ["packages/apps/GlyphAdapter"]="https://github.com/Pong-Development/packages_apps_GlyphAdapter.git|16"
     ["hardware/dolby"]="https://github.com/Pong-Development/hardware_dolby.git|16"
-    ["vendor/lineage/signing/keys"]="https://github.com/neikos4962/vendor_lineage_signing_keys.git"
+    ["vendor/lineage/signing/keys"]="https://github.com/neikos4962/vendor_lineage_signing_keys.git|main"
 )
 
 # Function to clone a repository with error handling
