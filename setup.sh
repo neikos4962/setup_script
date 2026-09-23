@@ -48,8 +48,8 @@ declare -A REPOS=(
     ["vendor/nothing/Pong"]="https://github.com/Pong-Development/vendor_nothing_Pong.git|17"
     ["kernel/nothing/sm8475"]="https://github.com/Pong-Development/kernel_nothing_sm8475.git|17"
     ["kernel/nothing/sm8475-modules"]="https://github.com/Pong-Development/kernel_nothing_sm8475-modules.git|17"
-    ["kernel/nothing/sm8475-devicetrees"]="https://github.com/Nothing-phone-2-Development/android_kernel_nothing_sm8475-devicetrees.git|lineage-23.0"
-    ["hardware/qcom-caf/sm8450/display"]="https://github.com/Pong-Development/hardware_qcom-caf_sm8450_display.git|16.2"
+    ["kernel/nothing/sm8475-devicetrees"]="https://github.com/Pong-Development/kernel_nothing_sm8475-devicetrees.git|17"
+    ["hardware/qcom-caf/sm8450/display"]="https://github.com/Pong-Development/hardware_qcom-caf_sm8450_display.git|17"
     ["packages/apps/ParanoidGlyphPhone2"]="https://github.com/Pong-Development/packages_apps_ParanoidGlyph.git|17"
     ["packages/apps/GlyphAdapter"]="https://github.com/Pong-Development/packages_apps_GlyphAdapter.git|16"
     ["hardware/dolby"]="https://github.com/Pong-Development/hardware_dolby.git|16"
@@ -117,6 +117,17 @@ cd - >/dev/null
 echo ""
 echo ""
 echo " ✅ KernelSU patch applied."
+echo ""
+
+# patch wfd
+echo "Applying patch wfd..."
+cd hardware/lineage/compat || exit 1
+git fetch https://github.com/Lunaris-Stagging/hardware_lineage_compat patch
+git cherry-pick -s 3486ff4cea891f5a5103ce407e6f86ff44dcb1e5
+cd ../../.. || exit 1
+echo ""
+echo ""
+echo " ✅ wfd patch applied."
 echo ""
 
 # setup done
