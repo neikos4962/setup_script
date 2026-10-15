@@ -130,6 +130,18 @@ echo ""
 echo " ✅ wfd patch applied."
 echo ""
 
+# patch wfd
+echo "Applying extra UDFPS icons..."
+cd vendor/lineage || exit 1
+git fetch https://github.com/neikos4962/android_vendor_derpfest-udfps_icons.git
+git cherry-pick -s 2302f3918e4250ad5b0bcd8adfff201d450b966e
+cd ../.. || exit 1
+echo ""
+echo ""
+echo " ✅ Extra UDFPS icons applied."
+echo ""
+
+
 # setup done
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
