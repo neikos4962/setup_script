@@ -112,7 +112,7 @@ done
 # KernelSU patch
 echo "Applying KernelSU patch..."
 cd kernel/nothing/sm8475 || exit 1
-curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s main
+curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v3.3.1
 cd - >/dev/null
 echo ""
 echo ""
